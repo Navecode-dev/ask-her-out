@@ -5,28 +5,30 @@
 }
 
 body {
-  /* background: #23011c; */
-  /* background-image: linear-gradient(
-    0.25turn,
-    #100716,
-    #1f031b,
-    #1c0101,
-    #250212,
-    #200f02
-  ); */
   background-color: rgb(24, 22, 22);
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
+
+  /* biar judul + tombol ke tengah */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ===== CIRCLE EFFECT ===== */
 .circle {
   position: absolute;
   bottom: 0;
   width: 20px;
   aspect-ratio: 1/1;
   background: rgb(248, 248, 248);
-  box-shadow: 0 0 10px rgb(232, 9, 16), 0 0 20px rgb(148, 7, 7),
-    0 0 30px rgb(91, 3, 3), 0 0 40px rgb(68, 2, 10), 0 0 50px rgb(32, 1, 2);
+  box-shadow: 
+    0 0 10px rgb(232, 9, 16),
+    0 0 20px rgb(148, 7, 7),
+    0 0 30px rgb(91, 3, 3),
+    0 0 40px rgb(68, 2, 10),
+    0 0 50px rgb(32, 1, 2);
   border-radius: 50%;
   animation: animate 5s linear forwards;
 }
@@ -34,9 +36,6 @@ body {
 @keyframes animate {
   0% {
     transform: translateY(-100vh) skew(-5deg);
-    opacity: 1;
-  }
-  50% {
     opacity: 1;
   }
   100% {
@@ -55,33 +54,75 @@ body {
   opacity: 0.5;
 }
 
-/* ===== RESPONSIVE FIX PAGE 6 NO1 ===== */
+/* ===== TITLE ===== */
+h1 {
+  margin-bottom: 3rem;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: whitesmoke;
+  z-index: 1;
+}
+
+.red {
+  color: rgb(233, 71, 71);
+  font-family: cursive;
+}
+
+/* ===== BUTTONS (INI YANG DIPERBAIKI) ===== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;          /* JANGAN gede-gede */
+  width: 100%;
+  z-index: 1;
+}
+
+#yes,
+#no {
+  margin: 0;          /* reset bootstrap */
+  font-size: 40px;
+}
+
+#yes {
+  width: 150px;
+  height: 150px;
+  border-radius: 1rem 3rem 2rem 4rem;
+}
+
+#no {
+  width: 150px;
+  height: 150px;
+  border-radius: 4rem 2rem 3rem 1rem;
+}
+
+/* ===== WATERMARK ===== */
+.watermark {
+  opacity: 0.5;
+  color: rgb(243, 214, 214);
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+}
+
+.watermark a {
+  text-decoration: none;
+  color: rgb(243, 214, 214);
+}
+
+/* ===== RESPONSIVE HP ===== */
 @media (max-width: 768px) {
-
   h1 {
-    margin: 4rem 1rem 2rem;
-    text-align: center;
     font-size: 1.6rem;
-  }
-
-  .buttons {
-    flex-direction: row;
-    gap: 2rem;
-    margin-top: 3rem;
+    margin-bottom: 2rem;
   }
 
   #yes,
   #no {
     width: 120px;
     height: 120px;
-    font-size: 32px;
-  }
-
-  .watermark {
-    bottom: 10px;
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 12px;
+    font-size: 30px;
   }
 }
