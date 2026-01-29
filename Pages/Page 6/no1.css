@@ -55,53 +55,33 @@ body {
   opacity: 0.5;
 }
 
-h1 {
-  margin: 10rem 0 0;
-  padding-bottom: 3rem;
-  display: flex;
-  justify-content: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: whitesmoke;
-  z-index: 1;
-}
+/* ===== RESPONSIVE FIX PAGE 6 NO1 ===== */
+@media (max-width: 768px) {
 
-.red {
-  color: rgb(233, 71, 71);
-  font-family: cursive;
-}
+  h1 {
+    margin: 4rem 1rem 2rem;
+    text-align: center;
+    font-size: 1.6rem;
+  }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 7rem;
-  gap: 12rem; 
-}
+  .buttons {
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
 
-#yes {
-  width: 150px;
-  height: 200px;
-  font-size: 50px;
-  border-radius: 1rem 3rem 2rem 4rem;
-  z-index: 1;
-}
+  #yes,
+  #no {
+    width: 120px;
+    height: 120px;
+    font-size: 32px;
+  }
 
-#no {
-  width: 200px;
-  height: 150px;
-  font-size: 50px;
-  border-radius: 4rem 2rem 3rem 1rem;
-  z-index: 1;
-}
-
-.watermark {
-  opacity: 0.5;
-  color: rgb(243, 214, 214);
-  position: fixed;
-  top: 95%;
-  left: 47%;
-}
-
-.watermark a {
-  text-decoration: none;
-  color: rgb(243, 214, 214);
+  .watermark {
+    bottom: 10px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+  }
 }

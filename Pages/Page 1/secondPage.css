@@ -2,22 +2,34 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    /* ❌ overflow hidden global DIHAPUS */
 }
 
+/* BODY */
 body{
     min-height: 100vh;
     background: #0c192c;
+    overflow-x: hidden;
 }
 
+/* CONTAINER */
 .container{
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+/* TEXT */
+h1{  
+    margin-top: 2rem;
+    padding: 0 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: whitesmoke;
+    text-align: center;
 }
 
 h2{
@@ -29,64 +41,53 @@ h3{
     color: #203757;
 }
 
+/* BUTTON */
 .btn{
     z-index: 1000;
 }
 
+/* HEART ANIMATION */
 .hearts{
-    font-size: 100px;;
+    font-size: 80px;
     font-weight: bold;
     position: fixed;
-    top: -1vh;
+    top: -10vh;
     left: 0;
-    transform: translateY(0%);
-    animation: fall 1s ease-in infinite;
+    animation: fall 1.2s linear infinite;
+    pointer-events: none;
 }
-
 
 @keyframes fall{
     to{
-        transform: translateY(250vh);
+        transform: translateY(260vh);
     }
 }
 
-h1{  
-    margin-top: 2rem;
-    padding: 0 2rem 0;
-    /* font-size: 5rem; */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: whitesmoke;
-}
-
+/* CENTER CONTENT */
 #center{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 4rem 0 4rem;
+    margin: 3rem 0;
 }
 
+/* ANIMATED WORDS */
 .beauti, .gorg, .wow{
     color: transparent;
-    -webkit-text-stroke: 3px darkmagenta;
+    -webkit-text-stroke: 2px darkmagenta;
     position: relative;
     font-size: 3rem;
-}
-
-#beauti{
-    padding: 2rem 0 2rem;
-}
-
-#gorg{
     text-align: center;
-    padding: 2rem 0 2rem;
 }
 
+#beauti,
+#gorg,
 #wow{
-    text-align: right;
-    padding: 2rem 0 2rem;
+    padding: 1.5rem 0;
 }
 
+/* TEXT ANIMATION */
 .beauti::before{
     content: "BEAUTIFUL!!!!!!";
     position: absolute;
@@ -94,9 +95,10 @@ h1{
     height: 100%;
     overflow: hidden;
     color: darkmagenta;
-    border-right: 8px solid darkmagenta;
-    animation: slidein infinite 1.5s;
+    border-right: 6px solid darkmagenta;
+    animation: slidein 1.5s infinite;
 }
+
 .gorg::before{
     content: "GORGEOUS!!!!!!";
     position: absolute;
@@ -104,42 +106,75 @@ h1{
     height: 100%;
     overflow: hidden;
     color: darkmagenta;
-    border-right: 8px solid darkmagenta;
-    animation: slidein infinite 1.5s;
-    animation-direction: reverse;
+    border-right: 6px solid darkmagenta;
+    animation: slidein 1.5s infinite reverse;
 }
+
 .wow::before{
-    content: "WOWWWW!!!!!!";
+    content: "GODDESS!!!!!!";
     position: absolute;
     width: 0%;
     height: 100%;
     overflow: hidden;
     color: darkmagenta;
-    border-right: 8px solid darkmagenta;
-    animation: slidein infinite 1.5s;
+    border-right: 6px solid darkmagenta;
+    animation: slidein 1.5s infinite;
 }
 
 @keyframes slidein {
     to {
         width: 100%;
-        filter: drop-shadow(0 0 25px darkmagenta);
+        filter: drop-shadow(0 0 20px darkmagenta);
     }
 }
 
-.beauti:hover::before, .gorg:hover::before, .wow:hover::before{
+.beauti:hover::before,
+.gorg:hover::before,
+.wow:hover::before{
     width: 100%;
-    filter: drop-shadow(0 0 25px darkmagenta);
+    filter: drop-shadow(0 0 20px darkmagenta);
 }
 
+/* WATERMARK */
 .watermark {
     opacity: 0.5;
     color: rgb(238, 203, 203);
-    position: relative;
-    top: 95%;
-    left: 47%;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
 }
 
 a{
     text-decoration: none;
     color: rgb(238, 203, 203);
+}
+
+/* ========================= */
+/* ===== RESPONSIVE HP ===== */
+/* ========================= */
+
+@media (max-width: 768px){
+
+    h1{
+        font-size: 22px;
+    }
+
+    .beauti, .gorg, .wow{
+        font-size: 2rem;
+        -webkit-text-stroke: 1.5px darkmagenta;
+    }
+
+    .hearts{
+        font-size: 50px;
+    }
+
+    #center{
+        margin: 2rem 0;
+    }
+
+    .watermark{
+        font-size: 11px;
+    }
 }

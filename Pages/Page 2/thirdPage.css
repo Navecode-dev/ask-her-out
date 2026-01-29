@@ -1,21 +1,44 @@
-.container {
-    position: relative;
-}
-  
-.center {
+/* RESET */
+*{
     margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* BODY */
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CENTER CONTENT */
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* BUTTON */
 .btn{
     cursor: pointer;
     transition: 0.3s;
     font-size: 20px;
+    padding: 10px 20px;
 }
 
+/* STATES */
 #disable{
     cursor: wait;
 }
@@ -24,15 +47,31 @@
     display: none;
 }
 
+/* WATERMARK */
 .watermark {
     opacity: 0.5;
-    color: BLACK;
+    color: black;
     position: fixed;
-    top: 95%;
-    left: 47%;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
 }
 
+/* LINK */
 a{
     text-decoration: none;
     color: black;
+}
+
+/* ===== RESPONSIVE HP ===== */
+@media (max-width: 768px){
+    .btn{
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .watermark{
+        font-size: 11px;
+    }
 }
